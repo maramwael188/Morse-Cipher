@@ -1,0 +1,262 @@
+// FCAI – Programming 1 – 2022 - Assignment 2
+// Program Name: Morse_Code_Cipher.cpp
+// Program Description: This program encrypts and decrypts messages using Morse Code Cipher
+// Last Modification Date: 27/3/2022
+// Author1 and ID and Group: Maram Wael 20211087 Group A
+// Teaching Assistant:
+// Purpose: Encrypt and decrypt messages using Morse Code Cipher
+
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+int main() {
+    // while loop to make the program run until the user exits
+    while (true) {
+        cout << "Hello, What do you like to do?" << endl;
+        // print options to user to choose what he wants to do
+        string option1 = "1- Cipher a message";
+        string option2 = "2- Decipher a message";
+        string option3 = "3- End";
+        cout << option1 << endl << option2 << endl << option3 << endl;
+        char option[2];
+        cout << "enter number of process you want: ";
+        cin.getline(option, 3);
+        if (option[0] == '1') {
+            cout << "enter a message in lowercase to cipher: ";
+            char message1[500];
+            // take message from user to cipher it
+            cin.getline(message1, 500);
+            string morse;
+            // for loop to loop on the message characters
+            for (int i = 0; i < strlen(message1); i++) {
+                char x = message1[i];
+                // switch to substitute each character by its code in cipher
+                switch (x) {
+                    case ' ':
+                        morse += "   ";
+                        break;
+                    case 'a':
+                        morse += ".- ";
+                        break;
+                    case 'b':
+                        morse += "-... ";
+                        break;
+                    case 'c':
+                        morse += "-.-. ";
+                        break;
+                    case 'd':
+                        morse += "-.. ";
+                        break;
+                    case 'e':
+                        morse += ". ";
+                        break;
+                    case 'f':
+                        morse += "..-. ";
+                        break;
+                    case 'g':
+                        morse += "--. ";
+                        break;
+                    case 'h':
+                        morse += ".... ";
+                        break;
+                    case 'i':
+                        morse += ".. ";
+                        break;
+                    case 'j':
+                        morse += ".--- ";
+                        break;
+                    case 'k':
+                        morse += "-.- ";
+                        break;
+                    case 'l':
+                        morse += ".-.. ";
+                        break;
+                    case 'm':
+                        morse += "-- ";
+                        break;
+                    case 'n':
+                        morse += "-. ";
+                        break;
+                    case 'o':
+                        morse += "--- ";
+                        break;
+                    case 'p':
+                        morse += ".--. ";
+                        break;
+                    case 'q':
+                        morse += "--.- ";
+                        break;
+                    case 'r':
+                        morse += ".-. ";
+                        break;
+                    case 's':
+                        morse += "... ";
+                        break;
+                    case 't':
+                        morse += "- ";
+                        break;
+                    case 'u':
+                        morse += "..- ";
+                        break;
+                    case 'v':
+                        morse += "...- ";
+                        break;
+                    case 'w':
+                        morse += ".-- ";
+                        break;
+                    case 'x':
+                        morse += "-..- ";
+                        break;
+                    case 'y':
+                        morse += "-.-- ";
+                        break;
+                    case 'z':
+                        morse += "--.. ";
+                        break;
+                    case '0':
+                        morse += "----- ";
+                        break;
+                    case '1':
+                        morse += ".---- ";
+                        break;
+                    case '2':
+                        morse += "..--- ";
+                        break;
+                    case '3':
+                        morse += "...-- ";
+                        break;
+                    case '4':
+                        morse += "....- ";
+                        break;
+                    case '5':
+                        morse += "..... ";
+                        break;
+                    case '6':
+                        morse += "-.... ";
+                        break;
+                    case '7':
+                        morse += "--... ";
+                        break;
+                    case '8':
+                        morse += "---.. ";
+                        break;
+                    case '9':
+                        morse += "----. ";
+                        break;
+                    default:
+                        cout << "invalid character" << endl;
+                        break;
+                }
+            }
+            // print encrypted message
+            cout << morse << endl;
+
+        }
+        if (option[0] == '2') {
+            cout << "enter a message in lowercase to decipher: ";
+            char message2[500];
+            // take message from user to decipher it
+            cin.getline(message2, 500);
+            string y;
+            string English;
+            string morse = message2;
+            morse += " ";
+            bool wasSp= false;
+            // for loop to loop on the ciphered message
+            for (int i = 0; i < morse.length(); i++) {
+                if (morse[i] == ' ') {
+                    if(wasSp) {
+                        English +=" ";
+                        continue;
+                    } else
+                       wasSp= true;
+                    // Substitute each code by its letter
+                    if (y == ".-")
+                        English += "a";
+                    else if (y == "-...")
+                        English += "b";
+                    else if (y == "-.-.")
+                        English += "c";
+                    else if (y == "-..")
+                        English += "d";
+                    else if (y == ".")
+                        English += "e";
+                    else if (y == "..-.")
+                        English += "f";
+                    else if (y == "--.")
+                        English += "g";
+                    else if (y == "....")
+                        English += "h";
+                    else if (y == "..")
+                        English += "i";
+                    else if (y == ".---")
+                        English += "j";
+                    else if (y == "-.-")
+                        English += "k";
+                    else if (y == ".-..")
+                        English += "l";
+                    else if (y == "--")
+                        English += "m";
+                    else if (y == "-.")
+                        English += "n";
+                    else if (y == "---")
+                        English += "o";
+                    else if (y == ".--.")
+                        English += "p";
+                    else if (y == "--.-")
+                        English += "q";
+                    else if (y == ".-.")
+                        English += "r";
+                    else if (y == "...")
+                        English += "s";
+                    else if (y == "-")
+                        English += "t";
+                    else if (y == "..-")
+                        English += "u";
+                    else if (y == "...-")
+                        English += "v";
+                    else if (y == ".--")
+                        English += "w";
+                    else if (y == "-..-")
+                        English += "x";
+                    else if (y == "-.--")
+                        English += "y";
+                    else if (y == "--..")
+                        English += "z";
+                    else if (y == ".----")
+                        English += "1";
+                    else if (y == "..---")
+                        English += "2";
+                    else if (y == "...--")
+                        English += "3";
+                    else if (y == "....-")
+                        English += "4";
+                    else if (y == ".....")
+                        English += "5";
+                    else if (y == "-....")
+                        English += "6";
+                    else if (y == "--...")
+                        English += "7";
+                    else if (y == "---..")
+                        English += "8";
+                    else if (y == "----.")
+                        English += "9";
+                    else if (y == "-----")
+                        English += "0";
+                    else
+                        cout << "invalid cipher" << endl;
+                    y = "";
+                    if (morse[i+1] == ' ' && morse[i+2] == ' ')
+                    {English += ' ';}
+                    continue;
+                }else
+                    wasSp= false;
+                y += message2[i];
+            }
+            // print decrypted message
+            cout << English << endl;
+        } if (option[0] == '3')
+            break;
+    }
+}
